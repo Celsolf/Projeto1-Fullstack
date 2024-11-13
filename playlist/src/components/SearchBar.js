@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+import { TextField, Button } from '@mui/material';
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
@@ -10,13 +10,16 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Digite o nome do artista ou álbum"
+      <TextField
+        label="Buscar artista ou álbum"
+        variant="outlined"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        style={{ marginRight: '10px' }}
       />
-      <button onClick={handleSearch}>Buscar</button>
+      <Button variant="contained" color="primary" onClick={handleSearch}>
+        Buscar
+      </Button>
     </div>
   );
 };
