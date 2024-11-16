@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Typography, Box } from '@mui/material';
 import SearchBar from './components/SearchBar';
 import AlbumList from './components/AlbumList';
 import AlbumDetail from './components/AlbumDetail';
@@ -24,14 +25,16 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Catálogo de Álbuns e Músicas</h1>
+    <Container>
+      <Typography variant="h3" component="h1" gutterBottom>
+        Catálogo de Álbuns e Músicas
+      </Typography>
       <SearchBar onSearch={fetchAlbums} />
-      <div style={{ display: 'flex', gap: '2rem' }}>
+      <Box display="flex" gap="2rem" marginTop="2rem">
         <AlbumList albums={albums} onSelectAlbum={handleAlbumSelect} />
         <AlbumDetail album={selectedAlbum} />
-      </div>
-    </div>
+      </Box>
+    </Container>
   );
 }
 
