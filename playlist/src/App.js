@@ -26,11 +26,25 @@ function App() {
 
   return (
     <Container>
-      <Typography variant="h3" component="h1" gutterBottom>
+        <Typography variant="h4"  
+        
+        sx={{
+    color: 'white',
+    fontSize: '2.5rem',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    width: '100%',
+    margin: '0px 1em 10px auto',
+    backgroundColor:'grey',
+  }}>
         Catálogo de Álbuns e Músicas
       </Typography>
       <SearchBar onSearch={fetchAlbums} />
-      <Box display="flex" gap="2rem" marginTop="2rem">
+      <Box display="flex" gap="2rem" marginTop="2rem"
+      sx={{
+        backgroundColor:'light blue',
+      }}
+      >
         <AlbumList albums={albums} onSelectAlbum={handleAlbumSelect} />
         <AlbumDetail album={selectedAlbum} />
       </Box>
