@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Typography, Box, CssBaseline, createTheme, ThemeProvider } from '@mui/material';
 import SearchBar from './components/SearchBar';
 import AlbumList from './components/AlbumList';
 import AlbumDetail from './components/AlbumDetail';
+
+const theme = createTheme({
+  palette: {
+    background: {
+      default: '#2c2c31',
+    },
+  },
+});
 
 function App() {
   const [albums, setAlbums] = useState([]);
@@ -25,30 +33,36 @@ function App() {
   };
 
   return (
-    <Container>
-        <Typography variant="h4"  
-        
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container
         sx={{
-    color: 'white',
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    width: '100%',
-    margin: '0px 1em 10px auto',
-    backgroundColor:'grey',
-  }}>
-        Catálogo de Álbuns e Músicas
-      </Typography>
-      <SearchBar onSearch={fetchAlbums} />
-      <Box display="flex" gap="2rem" marginTop="2rem"
-      sx={{
-        backgroundColor:'light blue',
-      }}
+          padding: '2rem',
+        }}
       >
-        <AlbumList albums={albums} onSelectAlbum={handleAlbumSelect} />
-        <AlbumDetail album={selectedAlbum} />
-      </Box>
-    </Container>
+        <Typography
+          variant="h4"
+          sx={{
+            color: 'white',
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            width: '100%',
+            margin: '0 0 10px 0',
+            backgroundColor: 'grey',
+            padding: '1rem',
+            borderRadius: '8px',
+          }}
+        >
+          Catálogo de Álbuns e Músicas
+        </Typography>
+        <SearchBar onSearch={fetchAlbums} />
+        <Box display="flex" gap="2rem" marginTop="2rem">
+          <AlbumList albums={albums} onSelectAlbum={handleAlbumSelect} />
+          <AlbumDetail album={selectedAlbum} />
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 

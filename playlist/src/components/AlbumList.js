@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 const AlbumList = ({ albums, onSelectAlbum }) => {
   return (
     <div>
-      <Typography variant="h5" component="h2" gutterBottom>
+      <Typography variant="h5" component="h2" color='white'gutterBottom>
         Resultados da Busca
       </Typography>
       {albums.map((album) => (
@@ -19,6 +19,9 @@ const AlbumList = ({ albums, onSelectAlbum }) => {
           display="flex"
           alignItems="center"
           style={{ cursor: 'pointer' }}
+          sx={{
+            backgroundColor: '#0b74ab',
+          }}
         >
           <img src={album.artworkUrl100} alt={album.collectionName} style={{ marginRight: '10px', borderRadius: '4px' }} />
           <div>

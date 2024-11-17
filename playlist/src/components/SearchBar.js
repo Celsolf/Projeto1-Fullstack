@@ -18,6 +18,9 @@ const SearchBar = ({ onSearch }) => {
   return (
     <div>
       <TextField
+       sx={{
+        backgroundColor: 'white',
+      }}
         label="Buscar artista ou álbum"
         variant="outlined"
         value={query}
